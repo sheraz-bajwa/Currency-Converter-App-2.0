@@ -22,57 +22,62 @@ class _homeState extends State<home> {
     StateServices stateservices = StateServices();
 
     return Scaffold(
+      backgroundColor: Color.fromARGB(255, 51, 51, 51),
       appBar: AppBar(
         title: Text('Hellooooooooooooooooooo'),
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
-        child: Column(
-          children: [
-            Center(
-                child: FutureBuilder(
-              future: stateservices.fetchExchangeRates(),
-              builder: (context, AsyncSnapshot<Currency> snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return CircularProgressIndicator();
-                }
-                return Center(
+        child: Padding(
+          padding: const EdgeInsets.all(11.0),
+          child: Column(
+            children: [
+              Center(
                   child: FutureBuilder(
-                    future: stateservices.fetchCurrencies(),
-                    builder: (context, AsyncSnapshot<Map> Currsnapshot) {
-                      if (snapshot.connectionState == ConnectionState.waiting) {
-                        return CircularProgressIndicator();
-                      } else if (snapshot.hasError) {
-                        // Handle the error condition
-                        return Text('Error fetching ${snapshot.error}');
-                      } else if (snapshot.hasData) {
-                        return Column(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          //crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            USD(
-                              Currencyy: Currsnapshot.data,
-                              rates: snapshot.data!.rates,
-                            ),
-                            SizedBox(
-                              height: 10,
-                            ),
-                            AnyToAny(
-                              Currencyy: Currsnapshot.data,
-                              rates: snapshot.data!.rates,
-                            )
-                            //Text(snapshot.data!.rates.toString())
-                          ],
-                        );
-                      } else {
-                        return Text('No data available');
-                      }
-                    },
-                  ),
-                );
-              },
-            )),
-          ],
+                future: stateservices.fetchExchangeRates(),
+                builder: (context, AsyncSnapshot<Currency> snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return CircularProgressIndicator();
+                  }
+                  return Center(
+                    child: FutureBuilder(
+                      future: stateservices.fetchCurrencies(),
+                      builder: (context, AsyncSnapshot<Map> Currsnapshot) {
+                        if (snapshot.connectionState ==
+                            ConnectionState.waiting) {
+                          return CircularProgressIndicator();
+                        } else if (snapshot.hasError) {
+                          // Handle the error condition
+                          return Text('Error fetching ${snapshot.error}');
+                        } else if (snapshot.hasData) {
+                          return Column(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            //crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              // USD(
+                              //   Currencyy: Currsnapshot.data,
+                              //   rates: snapshot.data!.rates,
+                              // ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              AnyToAny(
+                                Currencyy: Currsnapshot.data,
+                                rates: snapshot.data!.rates,
+                              )
+                              //Text(snapshot.data!.rates.toString())
+                            ],
+                          );
+                        } else {
+                          return Text('No data available');
+                        }
+                      },
+                    ),
+                  );
+                },
+              )),
+            ],
+          ),
         ),
       ),
     );

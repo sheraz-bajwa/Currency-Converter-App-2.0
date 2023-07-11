@@ -20,14 +20,141 @@ class _AnyToAnyState extends State<AnyToAny> {
     return Container(
       child: Center(
         child: Column(
-         
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             Text(
-              'UsdToAny',
-              style: TextStyle(fontSize: 30, color: Colors.amber),
+              'Usd To Any',
+              style: TextStyle(
+                  fontSize: 30,
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold),
             ),
             SizedBox(
               height: 20,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.green.withOpacity(0.5),
+                        spreadRadius: 2.0,
+                        blurRadius: 5.0,
+                        offset:
+                            Offset(0, 3), // changes the position of the shadow
+                      ),
+                    ],
+                    borderRadius: BorderRadius.circular(20),
+                    color: Color.fromARGB(255, 61, 61, 61),
+                  ),
+                  width: 120,
+                  height: 60,
+                  child: Center(
+                    child: Expanded(
+                      child: DropdownButton<String>(
+                        dropdownColor: Colors.blueGrey,
+                        value: dropdownvalue1,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500),
+                        // icon: Icon(
+                        //   Icons.arrow_downward_outlined,
+                        //   color: Colors.blue,
+                        // ),
+                        // iconSize: 24,
+                        // elevation: 16,
+                        // isExpanded: true,
+                        // underline: Container(
+                        //   height: 3,
+                        //   color: Colors.blueGrey,
+                        // ),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            dropdownvalue1 = newValue!;
+                          });
+                        },
+                        items: widget.Currencyy.keys
+                            .toSet()
+                            .toList()
+                            .map<DropdownMenuItem<String>>((value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 20,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.amber.withOpacity(0.5),
+                        spreadRadius: 2.0,
+                        blurRadius: 5.0,
+                        offset:
+                            Offset(0, 3), // changes the position of the shadow
+                      ),
+                    ],
+                    borderRadius: BorderRadius.circular(20),
+                    color: Color.fromARGB(255, 61, 61, 61),
+                  ),
+                  width: 120,
+                  height: 60,
+                  //margin: EdgeInsets.symmetric(horizontal: 20, vertical: 50),
+                  child: Center(
+                    child: Expanded(
+                      child: DropdownButton<String>(
+                        dropdownColor: Colors.amber,
+                        value: dropdownvalue2,
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 20,
+                            fontWeight: FontWeight.w500),
+                        // icon: Icon(
+                        //   Icons.arrow_downward_outlined,
+                        //   color: Colors.blue,
+                        // ),
+                        // iconSize: 24,
+                        // elevation: 16,
+                        // isExpanded: true,
+                        // underline: Container(
+                        //   height: 3,
+                        //   color: Colors.blueGrey,
+                        // ),
+                        onChanged: (String? newValue) {
+                          setState(() {
+                            dropdownvalue2 = newValue!;
+                          });
+                        },
+                        items: widget.Currencyy.keys
+                            .toSet()
+                            .toList()
+                            .map<DropdownMenuItem<String>>((value) {
+                          return DropdownMenuItem<String>(
+                            value: value,
+                            child: Text(value),
+                          );
+                        }).toList(),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            SizedBox(
+              height: 10,
+            ),
+            Image.asset('assets/refresh.png'),
+            SizedBox(
+              height: 10,
             ),
             TextFormField(
               key: Key('usd'),
@@ -38,15 +165,15 @@ class _AnyToAnyState extends State<AnyToAny> {
               style: TextStyle(color: Colors.white),
               controller: AmmountController,
               decoration: InputDecoration(
-                  border:
-                      OutlineInputBorder(borderRadius: BorderRadius.circular(50)),
+                  border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20)),
                   hintText: 'Enter Ammount',
                   hintStyle: TextStyle(color: Colors.white),
                   enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(50),
+                      borderRadius: BorderRadius.circular(20),
                       borderSide: BorderSide(color: Colors.white)),
                   focusedBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(50),
+                      borderRadius: BorderRadius.circular(20),
                       borderSide: BorderSide(color: Colors.grey.shade400)),
                   //fillColor: Colors.grey.shade200,
                   filled: true),
@@ -60,106 +187,41 @@ class _AnyToAnyState extends State<AnyToAny> {
             SizedBox(
               height: 20,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                  //decoration: BoxDecoration(color: Colors.blueAccent),
-                  width: 50,
-                  child: Expanded(
-                    child: DropdownButton<String>(
-                      dropdownColor: Colors.blueGrey,
-                      value: dropdownvalue1,
-                      style: TextStyle(color: Colors.black),
-                      icon: Icon(
-                        Icons.arrow_downward_outlined,
-                        color: Colors.blue,
-                      ),
-                      iconSize: 24,
-                      elevation: 16,
-                      isExpanded: true,
-                      underline: Container(
-                        height: 3,
-                        color: Colors.blueGrey,
-                      ),
-                      onChanged: (String? newValue) {
-                        setState(() {
-                          dropdownvalue1 = newValue!;
-                        });
-                      },
-                      items: widget.Currencyy.keys
-                          .toSet()
-                          .toList()
-                          .map<DropdownMenuItem<String>>((value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
+            Container(
+              height: 50,
+              width: 150,
+              child: ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    answer = AmmountController.text +
+                        '  ' +
+                        dropdownvalue1 +
+                        '  ' +
+                        convertAny(widget.rates, AmmountController.text,
+                            dropdownvalue1, dropdownvalue2) +
+                        '   ' +
+                        dropdownvalue2;
+                  });
+                },
+                child: Text(
+                  'Convert',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
+                ),
+                style: ElevatedButton.styleFrom(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(30.0),
                     ),
-                  ),
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Container(
-                  width: 80,
-                  //margin: EdgeInsets.symmetric(horizontal: 20, vertical: 50),
-                  child: Expanded(
-                    child: DropdownButton<String>(
-                      dropdownColor: Colors.amber,
-                      value: dropdownvalue2,
-                      style: TextStyle(color: Colors.black),
-                      icon: Icon(
-                        Icons.arrow_downward_outlined,
-                        color: Colors.blue,
-                      ),
-                      iconSize: 24,
-                      elevation: 16,
-                      isExpanded: true,
-                      underline: Container(
-                        height: 3,
-                        color: Colors.blueGrey,
-                      ),
-                      onChanged: (String? newValue) {
-                        setState(() {
-                          dropdownvalue2 = newValue!;
-                        });
-                      },
-                      items: widget.Currencyy.keys
-                          .toSet()
-                          .toList()
-                          .map<DropdownMenuItem<String>>((value) {
-                        return DropdownMenuItem<String>(
-                          value: value,
-                          child: Text(value),
-                        );
-                      }).toList(),
-                    ),
-                  ),
-                ),
-              ],
+                    elevation: 5.0,
+                    shadowColor: Colors.black,
+                    backgroundColor: MaterialStateColor.resolveWith(
+                        (states) => Color.fromARGB(255, 255, 32, 102))),
+              ),
             ),
             SizedBox(
               height: 20,
-            ),
-            ElevatedButton(
-              onPressed: () {
-                setState(() {
-                  answer = AmmountController.text +
-                      '  ' +
-                      dropdownvalue1 +
-                      '  ' +
-                      convertAny(widget.rates, AmmountController.text,
-                          dropdownvalue1, dropdownvalue2) +
-                      '   ' +
-                      dropdownvalue2;
-                });
-              },
-              child: Text('Convert'),
-              style: ButtonStyle(
-                  backgroundColor:
-                      MaterialStateColor.resolveWith((states) => Colors.amber)),
             ),
             Container(
               child: Text(

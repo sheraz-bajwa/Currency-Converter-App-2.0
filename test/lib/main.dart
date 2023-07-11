@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:money_converter/money_converter.dart';
 import 'package:money_converter/Currency.dart';
 import 'package:get/get.dart';
+import 'package:test/Screens/home.dart';
 import 'package:test/SplashScreens/splashScreen.dart';
 
 void main() {
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       //theme: const TextStyle(color: Colors.white),
       debugShowCheckedModeBanner: false,
-      home: Splash(),
+      home: home(),
     );
   }
 }
