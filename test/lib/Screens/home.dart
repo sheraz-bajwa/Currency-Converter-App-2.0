@@ -24,13 +24,20 @@ class _homeState extends State<home> {
     return Scaffold(
       backgroundColor: Color.fromARGB(255, 51, 51, 51),
       appBar: AppBar(
-        title: Text('Hellooooooooooooooooooo'),
+        centerTitle: true,
+        title: Text(
+          'Currency Exchange',
+          style: TextStyle(
+              fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: Color.fromARGB(255, 51, 51, 51),
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Padding(
           padding: const EdgeInsets.all(11.0),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Center(
                   child: FutureBuilder(
@@ -54,17 +61,17 @@ class _homeState extends State<home> {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             //crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              // USD(
-                              //   Currencyy: Currsnapshot.data,
-                              //   rates: snapshot.data!.rates,
-                              // ),
+                              USD(
+                                Currencyy: Currsnapshot.data,
+                                rates: snapshot.data!.rates,
+                              ),
                               SizedBox(
                                 height: 10,
                               ),
-                              AnyToAny(
-                                Currencyy: Currsnapshot.data,
-                                rates: snapshot.data!.rates,
-                              )
+                              // AnyToAny(
+                              //   Currencyy: Currsnapshot.data,
+                              //   rates: snapshot.data!.rates,
+                              // )
                               //Text(snapshot.data!.rates.toString())
                             ],
                           );

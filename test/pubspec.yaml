@@ -38,6 +38,7 @@ dependencies:
   money_converter: ^2.0.2
   get: ^4.6.5
   lottie: ^2.3.0
+  fl_chart: ^0.62.0
 
 
 dev_dependencies:
