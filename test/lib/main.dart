@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:money_converter/money_converter.dart';
 import 'package:money_converter/Currency.dart';
@@ -19,7 +18,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       //theme: const TextStyle(color: Colors.white),
       debugShowCheckedModeBanner: false,
-      home: Landing(),
+      home: Splash(),
     );
   }
 }

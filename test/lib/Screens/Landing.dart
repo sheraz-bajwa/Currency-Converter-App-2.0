@@ -1,6 +1,9 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:test/Screens/home.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:test/Screens/new.dart';
 
 class Landing extends StatefulWidget {
   const Landing({super.key});
@@ -31,13 +34,16 @@ class _LandingState extends State<Landing> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
+              height: 300,
+              //decoration: BoxDecoration(color: Colors.amber),
               child: Expanded(
                 child: LineChart(
                   LineChartData(
+                    backgroundColor: Colors.black26,
                     minX: 1,
                     minY: 0,
                     maxX: 7,
-                    maxY: 10,
+                    maxY: 7,
                     lineBarsData: lineChartBarData,
                   ),
                 ),
@@ -67,10 +73,10 @@ class _LandingState extends State<Landing> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Icon(
-                      Icons.currency_bitcoin,
-                      size: 40,
-                      color: Colors.white,
+                    Image.asset(
+                      'assets/exchange.png',
+                      height: 50,
+                      width: 50,
                     ),
                     Text(
                       'Any To Any',
@@ -90,7 +96,7 @@ class _LandingState extends State<Landing> {
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => home()),
+                  MaterialPageRoute(builder: (context) => home1()),
                 );
               },
               child: Container(
@@ -110,11 +116,7 @@ class _LandingState extends State<Landing> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    Icon(
-                      Icons.currency_bitcoin,
-                      size: 40,
-                      color: Colors.white,
-                    ),
+                    Image.asset('assets/dollar.png'),
                     Text(
                       'USD To Any',
                       style: TextStyle(
@@ -138,11 +140,10 @@ class _LandingState extends State<Landing> {
 
 List<LineChartBarData> lineChartBarData = [
   LineChartBarData(color: Colors.amber, isCurved: true, spots: [
-    FlSpot(1, 8),
-    FlSpot(3, 9.8),
-    FlSpot(4, 9),
-    FlSpot(5, 8),
-    FlSpot(6, 8.6),
-    FlSpot(7, 10)
+    FlSpot(1, 0),
+    FlSpot(2, 2),
+    FlSpot(3, 3),
+    FlSpot(4, 2),
+    FlSpot(6, 6)
   ])
 ];

@@ -1,11 +1,11 @@
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:test/services/services.dart';
 
 class USD extends StatefulWidget {
+  const USD({super.key, required this.rates, required this.Currencyy});
   final rates;
   final Currencyy;
-  const USD({super.key, required this.rates, required this.Currencyy});
-
   @override
   State<USD> createState() => _USDState();
 }

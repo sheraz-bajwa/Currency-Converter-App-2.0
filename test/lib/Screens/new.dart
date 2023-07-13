@@ -5,16 +5,16 @@ import 'package:test/Screens/usdTOANY2.dart';
 import 'package:test/services/meethood.dart';
 import 'package:test/services/services.dart';
 
-class home extends StatefulWidget {
-  const home({
+class home1 extends StatefulWidget {
+  const home1({
     super.key,
   });
 
   @override
-  State<home> createState() => _homeState();
+  State<home1> createState() => _home1State();
 }
 
-class _homeState extends State<home> {
+class _home1State extends State<home1> {
   String dropdownvalue = 'PKR';
   String result = 'convertedCUrrency';
   @override
@@ -61,17 +61,17 @@ class _homeState extends State<home> {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             //crossAxisAlignment: CrossAxisAlignment.center,
                             children: [
-                              // USD(
-                              //   Currencyy: Currsnapshot.data,
-                              //   rates: snapshot.data!.rates,
-                              // ),
+                              USD(
+                                Currencyy: Currsnapshot.data,
+                                rates: snapshot.data!.rates,
+                              ),
                               SizedBox(
                                 height: 10,
                               ),
-                              AnyToAny(
-                                Currencyy: Currsnapshot.data,
-                                rates: snapshot.data!.rates,
-                              )
+                              // AnyToAny(
+                              //   Currencyy: Currsnapshot.data,
+                              //   rates: snapshot.data!.rates,
+                              // )
                               //Text(snapshot.data!.rates.toString())
                             ],
                           );

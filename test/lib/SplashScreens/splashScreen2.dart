@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:lottie/lottie.dart';
 import 'package:flutter/material.dart';
+import 'package:test/Screens/Landing.dart';
 import 'package:test/Screens/home.dart';
 
 class Splash2 extends StatefulWidget {
@@ -16,7 +17,7 @@ class _Splash2State extends State<Splash2> {
     super.initState();
     Timer(Duration(seconds: 15), () {
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => home()),
+        MaterialPageRoute(builder: (context) => Landing()),
       );
     });
   }
