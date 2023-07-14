@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:test/services/services.dart';
 
 class USD extends StatefulWidget {
-  const USD({super.key, required this.rates, required this.Currencyy});
   final rates;
   final Currencyy;
+  const USD({Key? key, required this.rates, required this.Currencyy})
+      : super(key: key);
+
   @override
   State<USD> createState() => _USDState();
 }
@@ -13,7 +15,7 @@ class USD extends StatefulWidget {
 class _USDState extends State<USD> {
   final ConverterController = TextEditingController();
   String dropdownvalue = 'PKR';
-  String answer = 'converted CUrrency';
+  String answer = 'converted Currency';
   @override
   Widget build(BuildContext context) {
     return Container(

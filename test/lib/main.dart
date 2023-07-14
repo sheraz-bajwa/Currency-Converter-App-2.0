@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:money_converter/money_converter.dart';
-import 'package:money_converter/Currency.dart';
 import 'package:get/get.dart';
 import 'package:test/Screens/Landing.dart';
 import 'package:test/Screens/home.dart';

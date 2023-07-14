@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/rendering/box.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:test/Screens/AnyToAll.dart';
 import 'package:test/Screens/usdTOANY2.dart';
 import 'package:test/services/meethood.dart';
@@ -14,7 +15,18 @@ class home1 extends StatefulWidget {
   State<home1> createState() => _home1State();
 }
 
-class _home1State extends State<home1> {
+class _home1State extends State<home1> with TickerProviderStateMixin {
+  late final AnimationController _controller =
+      AnimationController(duration: const Duration(seconds: 8), vsync: this)
+        ..repeat();
+
+  @override
+  void dispose() {
+    super.dispose();
+    // TODO: implement setState
+    _controller.dispose();
+  }
+
   String dropdownvalue = 'PKR';
   String result = 'convertedCUrrency';
   @override
@@ -44,7 +56,13 @@ class _home1State extends State<home1> {
                 future: stateservices.fetchExchangeRates(),
                 builder: (context, AsyncSnapshot<Currency> snapshot) {
                   if (snapshot.connectionState == ConnectionState.waiting) {
-                    return CircularProgressIndicator();
+                    return Center(
+                      child: SpinKitFadingCircle(
+                        color: Colors.amberAccent,
+                        size: 50,
+                        controller: _controller,
+                      ),
+                    );
                   }
                   return Center(
                     child: FutureBuilder(
@@ -52,7 +70,13 @@ class _home1State extends State<home1> {
                       builder: (context, AsyncSnapshot<Map> Currsnapshot) {
                         if (snapshot.connectionState ==
                             ConnectionState.waiting) {
-                          return CircularProgressIndicator();
+                          return Center(
+                      child: SpinKitFadingCircle(
+                        color: Colors.amberAccent,
+                        size: 50,
+                        controller: _controller,
+                      ),
+                    );
                         } else if (snapshot.hasError) {
                           // Handle the error condition
                           return Text('Error fetching ${snapshot.error}');
