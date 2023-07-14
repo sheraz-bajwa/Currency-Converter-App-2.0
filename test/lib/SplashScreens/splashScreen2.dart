@@ -2,7 +2,6 @@ import 'dart:async';
 import 'package:lottie/lottie.dart';
 import 'package:flutter/material.dart';
 import 'package:test/Screens/Landing.dart';
-import 'package:test/Screens/home.dart';
 
 class Splash2 extends StatefulWidget {
   const Splash2({super.key});

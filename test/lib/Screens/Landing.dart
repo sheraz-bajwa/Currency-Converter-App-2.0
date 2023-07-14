@@ -1,6 +1,5 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
+import 'package:test/Screens/graph.dart';
 import 'package:test/Screens/home.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:test/Screens/new.dart';
@@ -31,24 +30,9 @@ class _LandingState extends State<Landing> {
         padding: const EdgeInsets.all(12.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          crossAxisAlignment: CrossAxisAlignment.center,
+          //crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Container(
-              height: 300,
-              //decoration: BoxDecoration(color: Colors.amber),
-              child: Expanded(
-                child: LineChart(
-                  LineChartData(
-                    backgroundColor: Colors.black26,
-                    minX: 1,
-                    minY: 0,
-                    maxX: 7,
-                    maxY: 7,
-                    lineBarsData: lineChartBarData,
-                  ),
-                ),
-              ),
-            ),
+            Graph(),
             GestureDetector(
               onTap: () {
                 Navigator.push(
@@ -137,13 +121,3 @@ class _LandingState extends State<Landing> {
     );
   }
 }
-
-List<LineChartBarData> lineChartBarData = [
-  LineChartBarData(color: Colors.amber, isCurved: true, spots: [
-    FlSpot(1, 0),
-    FlSpot(2, 2),
-    FlSpot(3, 3),
-    FlSpot(4, 2),
-    FlSpot(6, 6)
-  ])
-];
