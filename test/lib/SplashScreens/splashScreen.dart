@@ -14,9 +14,9 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 6), () {
+    Timer(const Duration(seconds: 6), () {
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => Splash2()),
+        MaterialPageRoute(builder: (context) => const Splash2()),
       );
     });
   }
@@ -24,7 +24,7 @@ class _SplashState extends State<Splash> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 30, 30, 30),
+      backgroundColor: const Color.fromARGB(255, 30, 30, 30),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -33,11 +33,11 @@ class _SplashState extends State<Splash> {
               child: Center(
                   child:
                       Lottie.asset('assets/two.json', width: double.infinity))),
-          SizedBox(
+          const SizedBox(
             height: 20,
           ),
           Container(
-            child: Column(
+            child: const Column(
               children: [
                 Text(
                   'Currency Converter App',

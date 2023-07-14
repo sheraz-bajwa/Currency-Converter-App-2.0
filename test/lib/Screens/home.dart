@@ -31,15 +31,15 @@ class _homeState extends State<home> with TickerProviderStateMixin {
     StateServices stateservices = StateServices();
 
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 51, 51, 51),
+      backgroundColor: const Color.fromARGB(255, 51, 51, 51),
       appBar: AppBar(
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Currency Exchange',
           style: TextStyle(
               fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold),
         ),
-        backgroundColor: Color.fromARGB(255, 51, 51, 51),
+        backgroundColor: const Color.fromARGB(255, 51, 51, 51),
       ),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
@@ -88,7 +88,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                                 //   Currencyy: Currsnapshot.data,
                                 //   rates: snapshot.data!.rates,
                                 // ),
-                                SizedBox(
+                                const SizedBox(
                                   height: 10,
                                 ),
                                 AnyToAny(
@@ -99,7 +99,7 @@ class _homeState extends State<home> with TickerProviderStateMixin {
                               ],
                             );
                           } else {
-                            return Text('No data available');
+                            return const Text('No data available');
                           }
                         },
                       ),

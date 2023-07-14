@@ -21,7 +21,7 @@ class _USDState extends State<USD> {
       child: Center(
         child: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             Container(
@@ -31,18 +31,18 @@ class _USDState extends State<USD> {
                     color: Colors.black.withOpacity(0.5),
                     spreadRadius: 2.0,
                     blurRadius: 5.0,
-                    offset: Offset(0, 3), // changes the position of the shadow
+                    offset: const Offset(0, 3), // changes the position of the shadow
                   ),
                 ],
                 borderRadius: BorderRadius.circular(20),
-                color: Color.fromARGB(255, 61, 61, 61),
+                color: const Color.fromARGB(255, 61, 61, 61),
               ),
               child: Center(
                 child: Expanded(
                   child: DropdownButton<String>(
-                    dropdownColor: Color.fromARGB(255, 37, 37, 37),
+                    dropdownColor: const Color.fromARGB(255, 37, 37, 37),
                     value: dropdownvalue,
-                    style: TextStyle(
+                    style: const TextStyle(
                         color: Colors.white,
                         fontSize: 20,
                         fontWeight: FontWeight.w500),
@@ -64,10 +64,10 @@ class _USDState extends State<USD> {
                 ),
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 10,
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             Container(
@@ -78,10 +78,10 @@ class _USDState extends State<USD> {
                       spreadRadius: 2.0,
                       blurRadius: 5.0,
                       offset:
-                          Offset(0, 3), // changes the position of the shadow
+                          const Offset(0, 3), // changes the position of the shadow
                     ),
                   ],
-                  color: Color.fromARGB(255, 51, 51, 51),
+                  color: const Color.fromARGB(255, 51, 51, 51),
                   borderRadius: BorderRadius.circular(20)),
               height: 300,
               child: Column(
@@ -90,60 +90,60 @@ class _USDState extends State<USD> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(
+                      const Text(
                         "USD",
                         style: TextStyle(
                             color: Color.fromARGB(255, 255, 32, 102),
                             fontWeight: FontWeight.w400,
                             fontSize: 30),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
-                      Text(
+                      const Text(
                         '|',
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
                             fontSize: 30),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         width: 10,
                       ),
                       Text(
                         dropdownvalue,
-                        style: TextStyle(
+                        style: const TextStyle(
                             color: Color.fromARGB(255, 241, 194, 5),
                             fontWeight: FontWeight.w400,
                             fontSize: 30),
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: TextFormField(
-                      key: Key('usd'),
+                      key: const Key('usd'),
                       onChanged: (value) {
                         setState(() {});
                       },
                       keyboardType: TextInputType.number,
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: Colors.white, fontWeight: FontWeight.bold),
                       controller: ConverterController,
                       decoration: InputDecoration(
                           border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20)),
                           hintText: 'Enter Ammount',
-                          hintStyle: TextStyle(
+                          hintStyle: const TextStyle(
                               color: Colors.white,
                               fontSize: 20,
                               fontWeight: FontWeight.w500),
                           enabledBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
-                              borderSide: BorderSide(color: Colors.grey)),
+                              borderSide: const BorderSide(color: Colors.grey)),
                           focusedBorder: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(20),
                               borderSide:
@@ -158,13 +158,13 @@ class _USDState extends State<USD> {
                       },
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 40,
                   ),
                   Container(
                     child: Text(
                       answer,
-                      style: TextStyle(
+                      style: const TextStyle(
                           color: Color.fromARGB(255, 241, 194, 5),
                           fontSize: 30,
                           fontWeight: FontWeight.bold),
@@ -173,7 +173,7 @@ class _USDState extends State<USD> {
                 ],
               ),
             ),
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             Container(
@@ -183,7 +183,7 @@ class _USDState extends State<USD> {
                     color: Colors.black.withOpacity(0.5),
                     spreadRadius: 2.0,
                     blurRadius: 5.0,
-                    offset: Offset(0, 3), // changes the position of the shadow
+                    offset: const Offset(0, 3), // changes the position of the shadow
                   ),
                 ],
                 borderRadius: BorderRadius.circular(20),
@@ -193,21 +193,10 @@ class _USDState extends State<USD> {
               child: ElevatedButton(
                 onPressed: () {
                   setState(() {
-                    answer = ConverterController.text +
-                        ' USD      =       ' +
-                        convertusd(widget.rates, ConverterController.text,
-                            dropdownvalue) +
-                        '   ' +
-                        dropdownvalue;
+                    answer = '${ConverterController.text} USD      =       ${convertusd(widget.rates, ConverterController.text,
+                            dropdownvalue)}   $dropdownvalue';
                   });
                 },
-                child: Text(
-                  'Convert',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold),
-                ),
                 style: ElevatedButton.styleFrom(
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(30.0),
@@ -215,7 +204,14 @@ class _USDState extends State<USD> {
                     elevation: 5.0,
                     shadowColor: Colors.black,
                     backgroundColor: MaterialStateColor.resolveWith(
-                        (states) => Color.fromARGB(255, 255, 32, 102))),
+                        (states) => const Color.fromARGB(255, 255, 32, 102))),
+                child: const Text(
+                  'Convert',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold),
+                ),
               ),
             ),
           ],

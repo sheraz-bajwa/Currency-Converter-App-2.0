@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test/Screens/graph.dart';
 import 'package:test/Screens/home.dart';
-import 'package:fl_chart/fl_chart.dart';
 import 'package:test/Screens/new.dart';
 
 class Landing extends StatefulWidget {
@@ -15,16 +14,16 @@ class _LandingState extends State<Landing> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 51, 51, 51),
+      backgroundColor: const Color.fromARGB(255, 51, 51, 51),
       appBar: AppBar(
         elevation: 0,
         centerTitle: true,
-        title: Text(
+        title: const Text(
           'Currency Exchange',
           style: TextStyle(
               fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold),
         ),
-        backgroundColor: Color.fromARGB(255, 51, 51, 51),
+        backgroundColor: const Color.fromARGB(255, 51, 51, 51),
       ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
@@ -32,12 +31,12 @@ class _LandingState extends State<Landing> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           //crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Graph(),
+            const Graph(),
             GestureDetector(
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => home()),
+                  MaterialPageRoute(builder: (context) => const home()),
                 );
               },
               child: Container(
@@ -48,12 +47,14 @@ class _LandingState extends State<Landing> {
                       spreadRadius: 2.0,
                       blurRadius: 5.0,
                       offset:
-                          Offset(0, 3), // changes the position of the shadow
+                          const Offset(0, 3), // changes the position of the shadow
                     ),
                   ],
                   borderRadius: BorderRadius.circular(20),
-                  color: Color.fromARGB(255, 61, 61, 61),
+                  color: const Color.fromARGB(255, 61, 61, 61),
                 ),
+                width: double.infinity,
+                height: 80,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
@@ -62,7 +63,7 @@ class _LandingState extends State<Landing> {
                       height: 50,
                       width: 50,
                     ),
-                    Text(
+                    const Text(
                       'Any To Any',
                       style: TextStyle(
                           letterSpacing: 1,
@@ -72,15 +73,13 @@ class _LandingState extends State<Landing> {
                     )
                   ],
                 ),
-                width: double.infinity,
-                height: 80,
               ),
             ),
             GestureDetector(
               onTap: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => home1()),
+                  MaterialPageRoute(builder: (context) => const home1()),
                 );
               },
               child: Container(
@@ -91,17 +90,19 @@ class _LandingState extends State<Landing> {
                       spreadRadius: 2.0,
                       blurRadius: 5.0,
                       offset:
-                          Offset(0, 3), // changes the position of the shadow
+                          const Offset(0, 3), // changes the position of the shadow
                     ),
                   ],
                   borderRadius: BorderRadius.circular(20),
-                  color: Color.fromARGB(255, 61, 61, 61),
+                  color: const Color.fromARGB(255, 61, 61, 61),
                 ),
+                width: double.infinity,
+                height: 80,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Image.asset('assets/dollar.png'),
-                    Text(
+                    const Text(
                       'USD To Any',
                       style: TextStyle(
                           letterSpacing: 1,
@@ -111,8 +112,6 @@ class _LandingState extends State<Landing> {
                     )
                   ],
                 ),
-                width: double.infinity,
-                height: 80,
               ),
             )
           ],

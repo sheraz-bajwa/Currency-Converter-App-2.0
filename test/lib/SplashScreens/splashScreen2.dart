@@ -14,9 +14,9 @@ class _Splash2State extends State<Splash2> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 15), () {
+    Timer(const Duration(seconds: 15), () {
       Navigator.of(context).pushReplacement(
-        MaterialPageRoute(builder: (context) => Landing()),
+        MaterialPageRoute(builder: (context) => const Landing()),
       );
     });
   }
@@ -24,7 +24,7 @@ class _Splash2State extends State<Splash2> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 30, 30, 30),
+      backgroundColor: const Color.fromARGB(255, 30, 30, 30),
       body: SingleChildScrollView(
         scrollDirection: Axis.vertical,
         child: Column(
@@ -35,7 +35,7 @@ class _Splash2State extends State<Splash2> {
                 child: Center(
                     child: Lottie.asset('assets/three.json',
                         width: double.infinity))),
-            SizedBox(
+            const SizedBox(
               height: 20,
             ),
             // Text(

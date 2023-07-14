@@ -17,12 +17,12 @@ class Currency {
           .map((k, v) => MapEntry<String, double>(k, v.toDouble())));
 
   Map<String, dynamic> toJson() {
-    final Map<String, dynamic> data = new Map<String, dynamic>();
-    data['disclaimer'] = this.disclaimer;
-    data['license'] = this.license;
-    data['timestamp'] = this.timestamp;
-    data['base'] = this.base;
-    if (this.rates != null) {
+    final Map<String, dynamic> data = <String, dynamic>{};
+    data['disclaimer'] = disclaimer;
+    data['license'] = license;
+    data['timestamp'] = timestamp;
+    data['base'] = base;
+    if (rates != null) {
       data['rates'] = Map.from(rates!)
           .map((k, v) => MapEntry<String, double>(k, v.toDouble()));
     }
